@@ -134,7 +134,7 @@
 
 <script>
   // Try to play as soon as possible
-  const music = document.getElementById("bg-music");
+  const music = document.getElementById("bg-music"); // <-- This looks for an ID that doesn't exist
 
   // Some browsers block autoplay with sound — so we ensure play on first user interaction
   document.addEventListener("click", () => {
