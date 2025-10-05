@@ -93,13 +93,12 @@
   <script>
     // List of all photos
     const photos = [
-      "Clickme/10.jpg",
-      "Clickme/M7.jpg",
-      "Clickme/M8.jpg",
       "Clickme/M2.jpg",
-      "Click/meM3.jpg",
+      "Clickme/M3.jpg",
       "Clickme/M4.jpg",
-      
+      "Clickme/M7.png",
+      "Clickme/M8.jpg",
+      "Clickme/M10.png"
     ];
 
     const gallery = document.querySelectorAll(".photo-gallery img");
@@ -128,13 +127,13 @@
     });
   </script>
  <audio controls autoplay loop style="display:none;">
-    <source src="1.mp3" type="audio/mpeg">
+    <source src="Clickme/1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
  </audio>
 
 <script>
   // Try to play as soon as possible
-  const music = document.getElementById("bg-music"); // <-- This looks for an ID that doesn't exist
+  const music = document.getElementById("bg-music");
 
   // Some browsers block autoplay with sound — so we ensure play on first user interaction
   document.addEventListener("click", () => {
