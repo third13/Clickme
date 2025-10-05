@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Girlfriend 💕</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 15px 0;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .button {
+      background: #fff;
+      color: #ff6b6b;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      position: relative;
+      display: inline-block;
+    }
+    .button:hover {
+      background: #ffe1e1;
+    }
+    #noBtn {
+      position: absolute;
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- 💕 Her picture -->
+  <img src="/storage/emulated/0/Ringtones/Phishing 😏/Assets/M.jpg" alt="Her Picture">
+
+  <h1>Mikay can you be my girlfriend? 💖</h1>
+  <p>You make my world brighter every day!</p>
+  
+  <a href="last.html" class="button">Yes 💕</a>
+  <!-- No button starts lower in the screen -->
+  <a href="#" class="button" id="noBtn" style="top:84%; left:50%; transform:translateX(-50%);">No 😢</a>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    let scale = 1; // start size
+
+    // funny/sweet messages
+    const messages = [
+      "Really? 😭",
+      "Mikay Are you sure?? 🥺",
+      "Nooo don’t do this 💔",
+      "Mikay Think again... 😢",
+      "Click Yes instead 😍",
+      "Why would you say no 😭",
+      "You know you want to say Yes 😉",
+      "Bahala ka da wara ka choice haha"
+    ];
+
+    noBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      // Move to random position
+      const x = Math.floor(Math.random() * (window.innerWidth - 120));
+      const y = Math.floor(Math.random() * (window.innerHeight - 60));
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      // Change text randomly
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      noBtn.textContent = randomMsg;
+
+      // Shrink button
+      scale -= 0.1; 
+      if (scale <= 0) {
+        noBtn.style.display = "none";
+      } else {
+        noBtn.style.transform = `scale(${scale})`;
+      }
+    });
+  </script>
+</body>
+</html>

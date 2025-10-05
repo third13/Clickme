@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yay! 💕</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a1ffce, #faffd1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .photo-gallery {
+      position: relative;
+      width: 650px;
+      height: 350px;
+      margin-top: 30px;
+    }
+
+    .photo-gallery img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      position: absolute;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Arc positions for desktop */
+    .photo-gallery img:nth-child(1) { top: 60px; left: 10px; transform: rotate(-20deg); }
+    .photo-gallery img:nth-child(2) { top: 0px; left: 170px; transform: rotate(-8deg); }
+    .photo-gallery img:nth-child(3) { top: 0px; right: 170px; transform: rotate(8deg); }
+    .photo-gallery img:nth-child(4) { top: 60px; right: 10px; transform: rotate(20deg); }
+
+    .photo-gallery img:hover {
+      transform: scale(1.1) rotate(0deg);
+      z-index: 10;
+      border-color: #f8cdda;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive layout for mobile */
+    @media (max-width: 700px) {
+      .photo-gallery {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .photo-gallery img {
+        position: static;
+        transform: rotate(0deg) !important;
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Yay!!! 💕 got you, You’re mine now 🎉🥰</h1>
+
+  <div class="photo-gallery">
+    <img src="images/photo1.jpg" alt="Photo 1">
+    <img src="images/photo2.jpg" alt="Photo 2">
+    <img src="images/photo3.jpg" alt="Photo 3">
+    <img src="images/photo4.jpg" alt="Photo 4">
+  </div>
+
+  <script>
+    // List of all photos
+    const photos = [
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M10.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M2.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M4.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M3.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M5.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M8.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M7.png",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M6.jpg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M9.jpeg",
+      "/storage/emulated/0/Ringtones/Phishing 😏/Assets/M5.jpg"
+    ];
+
+    const gallery = document.querySelectorAll(".photo-gallery img");
+
+    // Shuffle helper
+    function shuffle(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // Assign different delays to each photo slot
+    gallery.forEach((img, index) => {
+      setInterval(() => {
+        // shuffle photos and assign unique ones
+        const shuffled = shuffle(photos);
+        img.style.opacity = 0;
+        setTimeout(() => {
+          img.src = shuffled[index % shuffled.length]; // unique photo per slot
+          img.style.opacity = 1;
+        }, 300);
+      }, 2000 + index * 1000); // different delay for each slot
+    });
+  </script>
+ <audio controls autoplay loop style="display:none;">
+    <source src="/storage/emulated/0/Ringtones/Phishing 😏/Assets/1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+ </audio>
+
+<script>
+  // Try to play as soon as possible
+  const music = document.getElementById("bg-music");
+
+  // Some browsers block autoplay with sound — so we ensure play on first user interaction
+  document.addEventListener("click", () => {
+    music.play();
+  });
+</script>
+
+
+</body>
+</html>
