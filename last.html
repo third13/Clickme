@@ -123,19 +123,17 @@
           img.src = shuffled[index % shuffled.length]; // unique photo per slot
           img.style.opacity = 1;
         }, 300);
-      }, 2000 + index * 1000); // different delay for each slot
+      }, 2000 + index * 1000); 
     });
   </script>
  <audio controls autoplay loop style="display:none;">
     <source src="Clickme/1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
  </audio>
 
 <script>
-  // Try to play as soon as possible
+  
   const music = document.getElementById("bg-music");
 
-  // Some browsers block autoplay with sound — so we ensure play on first user interaction
   document.addEventListener("click", () => {
     music.play();
   });
